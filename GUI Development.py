@@ -2,10 +2,10 @@ import tkinter as tk
 
 #Creating the window
 root = tk.Tk()
-root.title("Arithmetic and Geometric Calculator")
-root.geometry("600x400")
+root.title("Arithmetic and Geometric Series Calculator")
+root.geometry("600x600")
 
-current_mode = "arithmetic"
+current_mode = "Arithmetic"
 current_colour_index = 0
 current_font_index = 0
 current_lang_index = 0
@@ -66,21 +66,21 @@ def calculate_sum():
     first_term = float(entry_first_term.get())
     common_difference = float(entry_common_difference.get())
     number_of_terms = int(entry_number_of_terms.get())
-    common_ratio = int(entry_common_ratio.get)
+    common_ratio = str(entry_common_ratio.get)
 
     if current_mode == "Arithmetic":
-        answer = (str(number_of_terms / 2) * (2 * first_term + ((number_of_terms) - 1) * common_difference))
+        answer = (int(number_of_terms / 2) * (2 * first_term + ((number_of_terms) - 1) * common_difference))
 
     else:
-        answer = (str(first_term * (common_ratio ** number_of_terms - 1) / common_ratio - 1))
+        answer = (int(common_ratio ** number_of_terms - 1))
 
-    result_text.insert(tk.END, str(answer))
+    result_text.insert(tk.END, int(answer))
 
 #Switching colours
 def togglecolour():
     current_colour_index = (current_colour_index + 1) % len(colours)
     colour = colours[current_colour_index]
-    root.configure(bg=colour)
+    root.config(bg=colour)
     updateentrycolours(colour)
 
 #Changing the font type
